@@ -27,9 +27,53 @@
  * - play a sound when someone clicks the "Shoot" button. You'll need to read about the <audio> element
  *   and how to use it in JS. You will also need to download a sound bite
  */
+ 	// washington capitals logo
+ 	$('.hits:first').prepend('<img src="caps.png"/><br><br>');
 
- $(function(){
+ 	// pittsburgh penguins logo
+ 	$('.hits:last').prepend('<img src="pens.png"/><br><br>');
 
+ 	// math randomizer to determine the number associated with the shit
+ 	function shot() {
+ 		return Math.random();
+ 	};
 
+ 	// team 1's shoot function on button click
+ 	$('#teamone-shoot').on('click', function() {
+ 		//increments the number of shots for each click
+   		$('#teamone-numshots').html(function(i, val) { return +val+1 });
+   		//increments the number of hits based on math randomizer
+   		//changes background color based on if it was a goal or not
+   		if (shot() > .85) {
+   			$('#teamone-numhits').html(function(i, val) { return +val+1 });
+   			$('body').css('background-color', 'blue');
+   		} else {
+   			$('body').css('background-color', 'white');
+   		}
+	});
 
- })
+ 	// team 2's shoot function on button click
+ 	$('#teamtwo-shoot').on('click', function() {
+ 		//increments the number of shots for each click
+   		$('#teamtwo-numshots').html(function(i, val) { return +val+1 });
+   		//increments the number of hits based on math randomizer
+   		//changes background color based on if it was a goal or not
+   		if (shot() > .85) {
+   			$('#teamtwo-numhits').html(function(i, val) { return +val+1 });
+   			$('body').css('background-color', 'yellow');
+   		} else {
+   			$('body').css('background-color', 'white');
+   		}
+	});
+
+ 	// reset button function
+ 	$('#reset').on('click', function() {
+ 		//increments the number of resets
+ 		$('#num-resets').html(function(i, val) { return +val+1 });
+ 		//resets all shots and hits from both teams back to zero
+ 		$('#teamone-numshots').html(function(i, val) { return 0});
+ 		$('#teamone-numhits').html(function(i, val) { return 0});
+ 		$('#teamtwo-numshots').html(function(i, val) { return 0});
+ 		$('#teamtwo-numhits').html(function(i, val) { return 0});
+ 		$('body').css('background-color', 'white');
+ 	});

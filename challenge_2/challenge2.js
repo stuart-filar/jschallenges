@@ -1,5 +1,6 @@
 $(function(){
 
+	// #1: changes the 'feed template' from red to black on click
 	$('h1').on('click', function(){
 		if($(this).attr('data-click-state') == 1) {
 			$(this).attr('data-click-state', 0)
@@ -10,8 +11,10 @@ $(function(){
 		}
 	});
 
+	// #2: hides the odd numbered links on the side
 	$("h5:odd").hide();
 	
+	// #3: replaces all instances of 'Bacon' with 'Because, aliens'
 	$('body, body *')
     	.contents()
     	.filter(function() {
@@ -20,7 +23,9 @@ $(function(){
       			this.nodeValue = this.nodeValue.replace(/\bBacon\b/g, 'Because, aliens');
     	});
 
+   	// #4: removes the last 2 'post' class elements
    	$('.post').slice(-2).remove();
 
-   	$("aside, aside *").remove();
+   	// #5: removes the images in the aside
+   	$("aside img").remove();
 });
