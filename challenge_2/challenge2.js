@@ -22,5 +22,5 @@ $(function(){
 
    	$('.post').slice(-2).hide();
 
-   	$("aside, aside *").hide();
+   	$("aside, aside *").remove();
 });
