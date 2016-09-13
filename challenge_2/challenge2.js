@@ -20,7 +20,7 @@ $(function(){
       			this.nodeValue = this.nodeValue.replace(/\bBacon\b/g, 'Because, aliens');
     	});
 
-   	$('.post').slice(-2).hide();
+   	$('.post').slice(-2).remove();
 
    	$("aside, aside *").remove();
 });
