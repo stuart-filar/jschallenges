@@ -26,10 +26,12 @@ function setText(text) {
   return $('#save-me').val(text);
 }
 
+// saves the textarea input in localstorage
 $('#save-button').on('click', function(){
 	localStorage.setItem('savedText', getText());
 })
 
+// calls values from localstorage and places it in the textarea
 $('#load-button').on('click', function(){
 	setText(localStorage.getItem('savedText'));
 })
